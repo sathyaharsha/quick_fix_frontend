@@ -38,6 +38,8 @@ function formatDate(value) {
   });
 }
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 function App() {
   const [mode, setMode] = useState("register");
   const [role, setRole] = useState("CUSTOMER");
@@ -92,7 +94,7 @@ function App() {
     }
   }, []);
 
-  const loadCustomerRequests = useCallback(async (customerId) => {
+  const _loadCustomerRequests = useCallback(async (customerId) => {
     const response = await fetch(
       `${API}/requests/customer/${customerId}`
     );
@@ -890,7 +892,7 @@ function App() {
         </div>
 
         <footer className="footer">
-          © {new Date().getFullYear()} QuickFix
+          © {CURRENT_YEAR} QuickFix
           <span>Local help, right when you need it.</span>
         </footer>
       </main>
@@ -1238,7 +1240,7 @@ function App() {
         </div>
 
         <footer className="footer">
-          © {new Date().getFullYear()} QuickFix
+          © {CURRENT_YEAR} QuickFix
           <span>Thank you for helping your community.</span>
         </footer>
       </main>
